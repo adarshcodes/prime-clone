@@ -1,0 +1,190 @@
+.main-container {
+    width: 100%
+}
+
+.sidebar {
+    @include flex-column;
+    position: fixed;
+    width: 30rem;
+    height: 100vh;
+    background-color: $color-primary-grey;
+    color: $color-primary-light;
+    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+
+    .top {
+        padding: 3rem 2rem 4rem 2rem;
+        height: 5rem;
+        @include flex-row;
+        align-items: center;
+        gap: 3rem;
+        border-bottom: 2px solid $color-primary-blue;
+
+        i {
+            font-size: 2.5rem;
+            cursor: pointer;
+        }
+
+        img {
+            width: 15rem;
+            cursor: pointer;
+        }
+    }
+
+    .main {
+        width: 30rem;
+        padding: 2rem 0;
+        color: $color-color;
+        @include flex-column;
+        gap: 2rem;
+        font-size: 1.45rem;
+
+        .search {
+            @include flex-row;
+            align-items: center;
+            gap: 2.5rem;
+            padding: 0 2rem;
+
+            i {
+                font-size: 2rem;
+            }
+
+            input {
+                transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                border-radius: .5rem;
+                flex: 1;
+                outline: none;
+                border: 1.5px solid $color-color;
+                padding: 1rem;
+                font-size: inherit;
+                background-color: transparent;
+                color: $color-primary-light;
+                transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+                &:hover {
+                    border: 1.5px solid $color-primary-light
+                }
+            }
+        }
+
+        .side-nav {
+            @include flex-column;
+
+            li {
+                @include flex-row;
+                gap: 2.5rem;
+                padding: 2rem;
+                cursor: pointer;
+                transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+                border-left: 4px solid transparent;
+
+                i {
+                    font-size: 1.8rem;
+                }
+
+                &:hover {
+                    color: $color-primary-light;
+                    border-left: 4px solid #00A0D6;
+                }
+            }
+
+            .active-list {
+                border-left: 4px solid #00A0D6;
+            }
+        }
+    }
+
+    .bottom {
+        margin-top: auto;
+        @include flex-row;
+        padding: 2rem;
+        gap: 2rem;
+        color: $color-color;
+        align-items: center;
+
+        .avatar {
+            @include flex-row-center;
+            width: 4.3rem;
+            height: 4.3rem;
+            border-radius: 50%;
+            border: 4px solid $color-primary-light;
+            transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+
+            img {
+                width: 4rem;
+                height: 4rem;
+                object-fit: cover;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        .user-info {
+            transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+            font-size: 1.3rem;
+
+            .name {
+                color: $color-primary-light;
+            }
+        }
+
+        .gear {
+            margin-left: auto;
+            @include flex-row-center;
+
+            gap: 2rem;
+
+            i {
+                font-size: 1.8rem;
+                transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+                cursor: pointer;
+
+                &:hover {
+                    color: $color-secondary-purple-light;
+                }
+            }
+
+            .setting-icon {
+                &:hover {
+                    transform: rotate(360deg);
+                }
+            }
+
+
+        }
+    }
+}
+
+.active-sidebar {
+    width: 6.5rem;
+    overflow: hidden;
+}
+
+.remove {
+    width: 0;
+    display: none !important;
+    opacity: 0;
+}
+
+.active-user {
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.main-content {
+    margin-left: 30rem;
+    width: 100%;
+    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+
+    .hero-sliders {
+        height: 70vh;
+        background-color: blue;
+    }
+
+    .movie-card {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    }
+}
+
+.active-main-content {
+    margin-left: 6.5rem !important;
+}
