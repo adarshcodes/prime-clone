@@ -1,0 +1,236 @@
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+/* Default */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body a {
+  text-decoration: none;
+  color: inherit;
+}
+body li {
+  list-style: none;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  color: #4E4B66;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: #181818;
+}
+
+.heading-primary {
+  font-size: 7.2rem;
+  font-weight: 400;
+}
+@media screen and (max-width: 750px) {
+  .heading-primary {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-primary {
+    font-size: 3rem;
+  }
+}
+
+.heading-secondary {
+  font-size: 4.2rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+  .heading-secondary {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-secondary {
+    font-size: 2.4rem;
+  }
+}
+
+.heading-tertiary {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+  .heading-tertiary {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+}
+
+.heading-m {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+@media screen and (max-width: 450px) {
+  .heading-m {
+    font-size: 2.8rem;
+  }
+}
+
+.heading-xm {
+  font-size: 4rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+  .heading-xm {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-xm {
+    font-size: 2.5rem;
+  }
+}
+
+.heading-ms {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+  .heading-ms {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-ms {
+    font-size: 1.8rem;
+  }
+}
+
+.heading-small {
+  font-size: 2rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 750px) {
+  .heading-small {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .heading-small {
+    font-size: 1.3rem;
+  }
+}
+
+.heading-xs {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+p {
+  font-weight: 400;
+}
+
+.para-small {
+  font-size: 1.6rem;
+}
+@media screen and (max-width: 750px) {
+  .para-small {
+    font-size: 1.7rem !important;
+  }
+}
+@media screen and (max-width: 550px) {
+  .para-small {
+    font-size: 1.3rem !important;
+  }
+}
+
+.para-xs {
+  font-size: 1.2rem;
+}
+
+.para-large {
+  font-size: 2rem;
+}
+@media screen and (max-width: 750px) {
+  .para-large {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .para-large {
+    font-size: 1.4rem;
+  }
+}
+
+.para-xl {
+  font-size: 2.4rem;
+}
+
+.para-m {
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 750px) {
+  .para-m {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .para-m {
+    font-size: 1.2rem;
+  }
+}
+
+.para-sm {
+  font-size: 1.4rem;
+}
+
+.para-tiny {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  text-transform: uppercase;
+}
+
+.para-massive {
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+@media screen and (max-width: 1000px) {
+  .para-massive {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .para-massive {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=main.css.map */
