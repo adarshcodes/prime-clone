@@ -172,16 +172,158 @@
 
 .main-content {
     margin-left: 30rem;
-    width: 100%;
     transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
 
     .hero-sliders {
         height: 70vh;
-        background-color: blue;
-    }
 
-    .movie-card {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+        .swiper {
+            height: 100%;
+        }
+
+        .movie-card {
+            height: 100%;
+
+            .text-content {
+                transform: translate(10%, 50%);
+                color: $color-primary-light;
+
+                .trending {
+                    font-weight: 700;
+                    font-size: 2rem;
+                }
+
+                .heading-primary {
+                    text-transform: uppercase;
+                    color: $color-primary-light;
+                    font-weight: 700;
+                }
+
+                .included {
+                    @include flex-row;
+                    align-items: center;
+                    gap: 1rem;
+                    margin-bottom: 5rem;
+
+                    .check {
+                        width: 2.5rem;
+                        height: 2.5rem;
+                        border-radius: 50%;
+                        background: #00A0D6;
+                        padding: .5rem;
+                        font-size: 1.5rem;
+                        @include flex-row-center;
+                    }
+
+                    .rated {
+                        margin-left: 3rem;
+                        padding: .5rem;
+                        border-radius: .5rem;
+                        font-size: 1.4rem;
+                        background-color: #373B40;
+                    }
+                }
+
+                .btns {
+                    @include flex-row;
+                    gap: .8rem;
+                    align-items: center;
+
+                    .play {
+                        @include flex-row-center;
+                        gap: 2rem;
+                        cursor: pointer;
+                        margin-right: 3rem;
+
+                        p {
+                            font-weight: 600;
+                            text-transform: capitalize;
+                            font-size: 1.8rem;
+                        }
+
+                        span {
+                            width: 7rem;
+                            height: 7rem;
+                            background-color: $color-primary-light;
+                            color: $color-primary-blue;
+                            @include flex-row-center;
+                            font-size: 3rem;
+                            border-radius: 50%;
+                            transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+
+                    .watchlist,
+                    .details {
+                        width: 4rem;
+                        height: 4rem;
+                        @include flex-row-center;
+                        color: $color-primary-light;
+                        background-color: #373B40;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        position: relative;
+                        transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+                    }
+
+                    .watchlist:hover {
+                        &::after {
+                            position: absolute;
+                            content: 'Watchlist';
+                            background-color: #373B40;
+                            bottom: -4rem;
+                            padding: .2rem .8rem;
+                            border-radius: .5rem;
+                        }
+                    }
+
+                    .details:hover {
+                        &::after {
+                            position: absolute;
+                            content: 'Details';
+                            background-color: #373B40;
+                            bottom: -4rem;
+                            padding: .2rem .8rem;
+                            border-radius: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .card-1 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/cristopher.jpg") no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .card-2 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/classof.png") no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .card-3 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/pathan.jpg") no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .card-4 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/dom.jpg") no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
+
+        .card-5 {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/smile.png") no-repeat;
+            background-size: contain;
+            background-position: right;
+        }
     }
 }
 
