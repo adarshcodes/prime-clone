@@ -22,6 +22,18 @@ html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  /* width */
+  /* Track */
+  /* Handle */
+}
+html ::-webkit-scrollbar {
+  width: 4px;
+}
+html ::-webkit-scrollbar-track {
+  background: #00050D;
+}
+html ::-webkit-scrollbar-thumb {
+  background: #00A0D6;
 }
 
 body {
@@ -40,14 +52,14 @@ body li {
 body {
   font-size: 1.6rem;
   font-family: "Poppins", sans-serif;
-  color: #4E4B66;
+  color: #fff;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  color: #181818;
+  color: #fff !important;
 }
 
 .heading-primary {
@@ -394,12 +406,25 @@ p {
 .main-content {
   margin-left: 30rem;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: #00050D;
+}
+.main-content .swiper-button-prev,
+.main-content .swiper-button-next {
+  color: #fff;
+}
+.main-content .swiper-button-prev:after,
+.main-content .swiper-button-next:after {
+  font-size: 3rem;
+  font-weight: 700;
 }
 .main-content .hero-sliders {
   height: 70vh;
 }
 .main-content .hero-sliders .swiper {
   height: 100%;
+}
+.main-content .hero-sliders .swiper-pagination-bullet {
+  background-color: #fff !important;
 }
 .main-content .hero-sliders .movie-card {
   height: 100%;
@@ -490,21 +515,31 @@ p {
   position: relative;
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
+.main-content .hero-sliders .movie-card .text-content .btns .watchlist:hover,
+.main-content .hero-sliders .movie-card .text-content .btns .details:hover {
+  background-color: #fff;
+  color: #373B40;
+  transform: scale(1.1);
+}
 .main-content .hero-sliders .movie-card .text-content .btns .watchlist:hover::after {
   position: absolute;
   content: "Watchlist";
+  color: #fff;
   background-color: #373B40;
   bottom: -4rem;
   padding: 0.2rem 0.8rem;
   border-radius: 0.5rem;
+  font-size: 1.2rem;
 }
 .main-content .hero-sliders .movie-card .text-content .btns .details:hover::after {
   position: absolute;
+  color: #fff;
   content: "Details";
   background-color: #373B40;
   bottom: -4rem;
   padding: 0.2rem 0.8rem;
   border-radius: 0.5rem;
+  font-size: 1.2rem;
 }
 .main-content .hero-sliders .card-1 {
   background: linear-gradient(90deg, rgb(0, 0, 0) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/cristopher.jpg") no-repeat;
@@ -530,6 +565,78 @@ p {
   background: linear-gradient(90deg, rgb(0, 0, 0) 40%, rgba(255, 255, 255, 0) 100%), url("../../assets/smile.png") no-repeat;
   background-size: contain;
   background-position: right;
+}
+.main-content .content {
+  color: #fff !important;
+  padding: 4rem 2rem;
+}
+.main-content .content .continue {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.main-content .content .continue .heading-section {
+  font-size: 2.4rem;
+}
+.main-content .content .continue .card {
+  border-radius: 0.8rem;
+  width: 26rem;
+}
+.main-content .content .continue .card .card-img {
+  border-radius: 0.8rem;
+  height: 14.3rem;
+}
+.main-content .content .continue .card .card-1-img {
+  background: url("../../assets/continue-watching/sherlock.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-2-img {
+  background: url("../../assets/continue-watching/young-seldon.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-3-img {
+  background: url("../../assets/continue-watching/kantara.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-4-img {
+  background: url("../../assets/continue-watching/kgf-chapter-2.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-5-img {
+  background: url("../../assets/continue-watching/pushpa.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-6-img {
+  background: url("../../assets/continue-watching/kung-fu-panda.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-7-img {
+  background: url("../../assets/continue-watching/sarileru.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-8-img {
+  background: url("../../assets/continue-watching/jack-ryan.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-9-img {
+  background: url("../../assets/continue-watching/pathan.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-10-img {
+  background: url("../../assets/continue-watching/infinite.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-11-img {
+  background: url("../../assets/continue-watching/gold.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-12-img {
+  background: url("../../assets/continue-watching/die-hart.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .continue .card .card-13-img {
+  background: url("../../assets/continue-watching/carnival.webp") no-repeat;
+  background-size: cover;
 }
 
 .active-main-content {
