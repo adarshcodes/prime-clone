@@ -10,9 +10,9 @@ const mainContent = document.querySelector(".main-content");
 ham.addEventListener("click", function () {
 	sidebar.classList.toggle("active-sidebar");
 	console.log("working");
-	search.classList.toggle("remove");
-	user.classList.toggle("remove");
-	angle.classList.toggle("remove");
+	search.classList.toggle("add-sidebar-items");
+	user.classList.toggle("add-sidebar-items");
+	angle.classList.toggle("add-sidebar-items");
 	bottom.classList.toggle("active-user");
 	avatar.classList.toggle("active-avatar");
 	mainContent.classList.toggle("active-main-content");

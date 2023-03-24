@@ -1,15 +1,19 @@
 .main-container {
-    width: 100%
+    width: 100%;
+    padding-bottom: 5rem;
+    background-color: $color-primary-dark
 }
 
 .sidebar {
     @include flex-column;
     position: fixed;
-    width: 30rem;
+    width: 6.5rem;
+    overflow: hidden;
+    z-index: 1000;
     height: 100vh;
     background-color: $color-primary-grey;
     color: $color-primary-light;
-    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all .2s cubic-bezier(0.5, 0, 0.5, 1.5);
 
     .top {
         padding: 3rem 2rem 4rem 2rem;
@@ -95,7 +99,8 @@
 
     .bottom {
         margin-top: auto;
-        @include flex-row;
+        @include flex-column;
+        justify-content: center;
         padding: 2rem;
         gap: 2rem;
         color: $color-color;
@@ -121,14 +126,19 @@
         .user-info {
             transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
             font-size: 1.3rem;
+            display: none;
 
             .name {
                 color: $color-primary-light;
             }
         }
 
+        .angle-right {
+            display: none;
+        }
+
         .gear {
-            margin-left: auto;
+            margin-left: 0;
             @include flex-row-center;
 
             gap: 2rem;
@@ -155,25 +165,23 @@
 }
 
 .active-sidebar {
-    width: 6.5rem;
-    overflow: hidden;
+    width: 30rem;
 }
 
-.remove {
-    width: 0;
-    display: none !important;
-    opacity: 0;
+.add-sidebar-items {
+    display: block !important;
 }
 
 .active-user {
-    flex-direction: column !important;
-    justify-content: center !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
 }
 
 .main-content {
-    margin-left: 30rem;
-    transition: all .3s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-left: 6.5rem;
+    transition: all .2s cubic-bezier(0.5, 0, 0.5, 1.5);
     background-color: $color-primary-dark;
+    overflow: hidden;
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -354,22 +362,161 @@
     .content {
         color: $color-primary-light !important;
         padding: 4rem 2rem;
+        @include flex-column;
+        gap: 5rem;
 
         .continue {
             @include flex-column;
             gap: 1rem;
+            z-index: 1000;
+
+            .swiper-hover {
+                overflow: visible;
+            }
 
             .heading-section {
                 font-size: 2.4rem;
+                margin-bottom: 2rem;
+
+                span {
+                    color: #00A0D6;
+                }
             }
 
             .card {
+                position: relative;
                 border-radius: .8rem;
                 width: 26rem;
+                cursor: pointer;
+                transition: all .3s cubic-bezier(0.5, -0.5, 0.2, 1.6);
+
+                &:hover {
+                    transform: scale(1.1);
+                    z-index: 100;
+
+                    .card-content {
+                        visibility: visible;
+                        opacity: 1;
+                        height: auto;
+                    }
+
+                    .card-img {
+                        border-radius: .8rem .8rem 0 0;
+                    }
+                }
+
+                .card-content {
+                    background-color: $color-primary-dark;
+                    padding: 1rem;
+                    position: absolute;
+                    border-radius: 0 0 .8rem .8rem;
+                    height: 0;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .3s cubic-bezier(0.5, -0.5, 0.2, 1.6);
+
+                    .included-with {
+                        font-size: 1.3rem;
+
+                        i {
+                            color: #00A0D6;
+                            font-size: 1.5rem;
+                            margin-right: .5rem;
+                        }
+                    }
+
+                    .ctas {
+                        margin-top: 1rem;
+                        @include flex-row-center;
+                        justify-content: flex-start;
+                        gap: 1rem;
+                        margin-bottom: 1.5rem;
+
+                        .play {
+                            @include flex-row-center;
+                            gap: 1rem;
+
+                            i {
+                                font-size: 4rem;
+                            }
+                        }
+
+                        .icon-sub {
+                            width: 3.5rem;
+                            height: 3.5rem;
+                            padding: 0 1rem;
+                            border-radius: 50%;
+                            background-color: #373B40;
+                            color: $color-primary-light;
+                            @include flex-row-center;
+                        }
+                    }
+
+                    .info {
+                        .title {
+                            .subtag {
+                                font-size: 1rem;
+                                letter-spacing: .3rem;
+                                text-transform: uppercase;
+                            }
+
+                            .heading-title {
+                                font-size: 2.5rem;
+                                letter-spacing: .1rem;
+                            }
+                        }
+
+                        .rated {
+                            font-size: 1.2rem;
+                            font-weight: 600;
+                            color: #A8A8A8;
+                            margin-bottom: .5rem;
+
+                            span {
+                                margin-left: 1rem;
+                                padding: 0 1rem;
+                                border-radius: .5rem;
+                                background-color: #373B40;
+                                color: $color-primary-light;
+                            }
+                        }
+
+                        .awards {
+                            font-size: 1.3rem;
+                            margin-bottom: .5rem;
+                        }
+
+                        .desc {
+                            color: #A8A8A8;
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
 
                 .card-img {
                     border-radius: .8rem;
                     height: 14.3rem;
+                    position: relative;
+
+                    .bar {
+                        width: 90%;
+                        height: .4rem;
+                        background-color: hsla(0, 0%, 100%, .2);
+                        position: absolute;
+                        left: 50%;
+                        top: 96%;
+                        transform: translate(-50%, -98%);
+                        border-radius: 5rem;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            width: 90%;
+                            height: .4rem;
+                            border-radius: 5rem;
+                            background-color: #00A0D6;
+                        }
+                    }
                 }
 
 
@@ -381,60 +528,197 @@
                 .card-2-img {
                     background: url("../../assets/continue-watching/young-seldon.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 30%;
+                        }
+                    }
                 }
 
                 .card-3-img {
                     background: url("../../assets/continue-watching/kantara.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 50%;
+                        }
+                    }
                 }
 
                 .card-4-img {
                     background: url("../../assets/continue-watching/kgf-chapter-2.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 70%;
+                        }
+                    }
                 }
 
                 .card-5-img {
                     background: url("../../assets/continue-watching/pushpa.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 30%;
+                        }
+                    }
                 }
 
                 .card-6-img {
                     background: url("../../assets/continue-watching/kung-fu-panda.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 10%;
+                        }
+                    }
                 }
 
                 .card-7-img {
                     background: url("../../assets/continue-watching/sarileru.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 20%;
+                        }
+                    }
                 }
 
                 .card-8-img {
                     background: url("../../assets/continue-watching/jack-ryan.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 55%;
+                        }
+                    }
                 }
 
                 .card-9-img {
                     background: url("../../assets/continue-watching/pathan.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 69%;
+                        }
+                    }
                 }
 
                 .card-10-img {
                     background: url("../../assets/continue-watching/infinite.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 42%;
+                        }
+                    }
                 }
 
                 .card-11-img {
                     background: url("../../assets/continue-watching/gold.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 5%;
+                        }
+                    }
                 }
 
                 .card-12-img {
                     background: url("../../assets/continue-watching/die-hart.webp") no-repeat;
                     background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 80%;
+                        }
+                    }
                 }
 
                 .card-13-img {
                     background: url("../../assets/continue-watching/carnival.webp") no-repeat;
+                    background-size: cover;
+
+                    .bar {
+                        &::after {
+                            width: 98%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .language {
+            position: relative;
+            z-index: 100;
+
+            .lang-card {
+                transform: scale(1) !important;
+
+                &:hover {
+                    .card-img {
+                        border-radius: .8rem !important;
+                    }
+                }
+
+                .lang-img-1 {
+                    background: url("../../assets/lang/hindi.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-2 {
+                    background: url("../../assets/lang/english.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-3 {
+                    background: url("../../assets/lang/telgu.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-4 {
+                    background: url("../../assets/lang/tamil.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-5 {
+                    background: url("../../assets/lang/malyalam.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-6 {
+                    background: url("../../assets/lang/odia.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-7 {
+                    background: url("../../assets/lang/marathi.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-8 {
+                    background: url("../../assets/lang/punjabi.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-9 {
+                    background: url("../../assets/lang/bangla.webp") no-repeat;
+                    background-size: cover;
+                }
+
+                .lang-img-10 {
+                    background: url("../../assets/lang/gujrati.webp") no-repeat;
                     background-size: cover;
                 }
             }
@@ -443,5 +727,5 @@
 }
 
 .active-main-content {
-    margin-left: 6.5rem !important;
+    margin-left: 30rem !important;
 }

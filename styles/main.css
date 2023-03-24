@@ -249,17 +249,21 @@ p {
 
 .main-container {
   width: 100%;
+  padding-bottom: 5rem;
+  background-color: #00050D;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: 30rem;
+  width: 6.5rem;
+  overflow: hidden;
+  z-index: 1000;
   height: 100vh;
   background-color: #1B2530;
   color: #fff;
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.2s cubic-bezier(0.5, 0, 0.5, 1.5);
 }
 .sidebar .top {
   padding: 3rem 2rem 4rem 2rem;
@@ -338,7 +342,8 @@ p {
 .sidebar .bottom {
   margin-top: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   padding: 2rem;
   gap: 2rem;
   color: #8197A4;
@@ -364,12 +369,16 @@ p {
 .sidebar .bottom .user-info {
   transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
   font-size: 1.3rem;
+  display: none;
 }
 .sidebar .bottom .user-info .name {
   color: #fff;
 }
+.sidebar .bottom .angle-right {
+  display: none;
+}
 .sidebar .bottom .gear {
-  margin-left: auto;
+  margin-left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -388,25 +397,23 @@ p {
 }
 
 .active-sidebar {
-  width: 6.5rem;
-  overflow: hidden;
+  width: 30rem;
 }
 
-.remove {
-  width: 0;
-  display: none !important;
-  opacity: 0;
+.add-sidebar-items {
+  display: block !important;
 }
 
 .active-user {
-  flex-direction: column !important;
-  justify-content: center !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
 }
 
 .main-content {
-  margin-left: 30rem;
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  margin-left: 6.5rem;
+  transition: all 0.2s cubic-bezier(0.5, 0, 0.5, 1.5);
   background-color: #00050D;
+  overflow: hidden;
 }
 .main-content .swiper-button-prev,
 .main-content .swiper-button-next {
@@ -569,22 +576,144 @@ p {
 .main-content .content {
   color: #fff !important;
   padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 .main-content .content .continue {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  z-index: 1000;
+}
+.main-content .content .continue .swiper-hover {
+  overflow: visible;
 }
 .main-content .content .continue .heading-section {
   font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+.main-content .content .continue .heading-section span {
+  color: #00A0D6;
 }
 .main-content .content .continue .card {
+  position: relative;
   border-radius: 0.8rem;
   width: 26rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.5, -0.5, 0.2, 1.6);
+}
+.main-content .content .continue .card:hover {
+  transform: scale(1.1);
+  z-index: 100;
+}
+.main-content .content .continue .card:hover .card-content {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+.main-content .content .continue .card:hover .card-img {
+  border-radius: 0.8rem 0.8rem 0 0;
+}
+.main-content .content .continue .card .card-content {
+  background-color: #00050D;
+  padding: 1rem;
+  position: absolute;
+  border-radius: 0 0 0.8rem 0.8rem;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.5, -0.5, 0.2, 1.6);
+}
+.main-content .content .continue .card .card-content .included-with {
+  font-size: 1.3rem;
+}
+.main-content .content .continue .card .card-content .included-with i {
+  color: #00A0D6;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+.main-content .content .continue .card .card-content .ctas {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.main-content .content .continue .card .card-content .ctas .play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.main-content .content .continue .card .card-content .ctas .play i {
+  font-size: 4rem;
+}
+.main-content .content .continue .card .card-content .ctas .icon-sub {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0 1rem;
+  border-radius: 50%;
+  background-color: #373B40;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-content .content .continue .card .card-content .info .title .subtag {
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+.main-content .content .continue .card .card-content .info .title .heading-title {
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+}
+.main-content .content .continue .card .card-content .info .rated {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #A8A8A8;
+  margin-bottom: 0.5rem;
+}
+.main-content .content .continue .card .card-content .info .rated span {
+  margin-left: 1rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  background-color: #373B40;
+  color: #fff;
+}
+.main-content .content .continue .card .card-content .info .awards {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+.main-content .content .continue .card .card-content .info .desc {
+  color: #A8A8A8;
+  font-size: 1.4rem;
 }
 .main-content .content .continue .card .card-img {
   border-radius: 0.8rem;
   height: 14.3rem;
+  position: relative;
+}
+.main-content .content .continue .card .card-img .bar {
+  width: 90%;
+  height: 0.4rem;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  position: absolute;
+  left: 50%;
+  top: 96%;
+  transform: translate(-50%, -98%);
+  border-radius: 5rem;
+}
+.main-content .content .continue .card .card-img .bar::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.4rem;
+  border-radius: 5rem;
+  background-color: #00A0D6;
 }
 .main-content .content .continue .card .card-1-img {
   background: url("../../assets/continue-watching/sherlock.webp") no-repeat;
@@ -594,51 +723,137 @@ p {
   background: url("../../assets/continue-watching/young-seldon.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-2-img .bar::after {
+  width: 30%;
+}
 .main-content .content .continue .card .card-3-img {
   background: url("../../assets/continue-watching/kantara.webp") no-repeat;
   background-size: cover;
+}
+.main-content .content .continue .card .card-3-img .bar::after {
+  width: 50%;
 }
 .main-content .content .continue .card .card-4-img {
   background: url("../../assets/continue-watching/kgf-chapter-2.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-4-img .bar::after {
+  width: 70%;
+}
 .main-content .content .continue .card .card-5-img {
   background: url("../../assets/continue-watching/pushpa.webp") no-repeat;
   background-size: cover;
+}
+.main-content .content .continue .card .card-5-img .bar::after {
+  width: 30%;
 }
 .main-content .content .continue .card .card-6-img {
   background: url("../../assets/continue-watching/kung-fu-panda.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-6-img .bar::after {
+  width: 10%;
+}
 .main-content .content .continue .card .card-7-img {
   background: url("../../assets/continue-watching/sarileru.webp") no-repeat;
   background-size: cover;
+}
+.main-content .content .continue .card .card-7-img .bar::after {
+  width: 20%;
 }
 .main-content .content .continue .card .card-8-img {
   background: url("../../assets/continue-watching/jack-ryan.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-8-img .bar::after {
+  width: 55%;
+}
 .main-content .content .continue .card .card-9-img {
   background: url("../../assets/continue-watching/pathan.webp") no-repeat;
   background-size: cover;
+}
+.main-content .content .continue .card .card-9-img .bar::after {
+  width: 69%;
 }
 .main-content .content .continue .card .card-10-img {
   background: url("../../assets/continue-watching/infinite.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-10-img .bar::after {
+  width: 42%;
+}
 .main-content .content .continue .card .card-11-img {
   background: url("../../assets/continue-watching/gold.webp") no-repeat;
   background-size: cover;
+}
+.main-content .content .continue .card .card-11-img .bar::after {
+  width: 5%;
 }
 .main-content .content .continue .card .card-12-img {
   background: url("../../assets/continue-watching/die-hart.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-12-img .bar::after {
+  width: 80%;
+}
 .main-content .content .continue .card .card-13-img {
   background: url("../../assets/continue-watching/carnival.webp") no-repeat;
   background-size: cover;
 }
+.main-content .content .continue .card .card-13-img .bar::after {
+  width: 98%;
+}
+.main-content .content .language {
+  position: relative;
+  z-index: 100;
+}
+.main-content .content .language .lang-card {
+  transform: scale(1) !important;
+}
+.main-content .content .language .lang-card:hover .card-img {
+  border-radius: 0.8rem !important;
+}
+.main-content .content .language .lang-card .lang-img-1 {
+  background: url("../../assets/lang/hindi.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-2 {
+  background: url("../../assets/lang/english.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-3 {
+  background: url("../../assets/lang/telgu.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-4 {
+  background: url("../../assets/lang/tamil.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-5 {
+  background: url("../../assets/lang/malyalam.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-6 {
+  background: url("../../assets/lang/odia.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-7 {
+  background: url("../../assets/lang/marathi.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-8 {
+  background: url("../../assets/lang/punjabi.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-9 {
+  background: url("../../assets/lang/bangla.webp") no-repeat;
+  background-size: cover;
+}
+.main-content .content .language .lang-card .lang-img-10 {
+  background: url("../../assets/lang/gujrati.webp") no-repeat;
+  background-size: cover;
+}
 
 .active-main-content {
-  margin-left: 6.5rem !important;
+  margin-left: 30rem !important;
 }/*# sourceMappingURL=main.css.map */
